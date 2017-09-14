@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<font size="3.5">
+<table border="0">
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      {% for run in runs %}
+        <tr>
+          <td>{{ run.start_datetime }}</td>
+          <td>{{ run.end_datetime }}</td>
+          <td>{%if not run in posts %}
+    		<a href="{% url 'shift:change_posts' operation='add' id=id pk=run.pk %}"> <button type="button" class="btn btn-default"> Post Run </button></a>
+    		{%else%}
+    		<a href="{% url 'shift:change_posts' operation='remove' id=id pk=run.pk %}"> <button type="button" class="btn btn-default"> Remove </button></a>
+    		{% endif %}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

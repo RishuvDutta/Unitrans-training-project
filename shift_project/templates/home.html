@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Unqualified
+Description: A two-column, fixed-width design.
+Version    : 1.0
+Released   : 20071220
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<style>
+body {font-size:25px;}
+</style>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}Unitrans{% endblock %} </title>
+<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.formset.js"></script>
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="{% url 'shift:home'%}">Unitrans</a></h1>
+		<p>An interface to manage shifts</p>
+	</div>
+	<div id="menu">
+		<ul>
+	<!-- 		<li><a href="/">Examples</a></li>
+			<li><a href="">Documentation</a></li> -->
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+		<div class="jumbotron">
+  <h1 class="display-3">Welcome!</h1>
+  <p class="lead">This is a simple interace made for managing shifts.</p>
+  <hr class="my-4">
+  <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Create Shifts</h2>
+          <p>This is where you are able view, create, edit and delete shifts for employees. </p>
+          <p><a class="btn btn-secondary" href="{%url 'shift:list'%}" role="button">View Shifts &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Post</h2>
+          <p>This is where employees can post shifts for other employees to cover. </p>
+          <p><a class="btn btn-secondary" href="{% url 'shift:post' %}" role="button">Create Post &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Cover Shifts</h2>
+          <p>This is where employees can view shifts posted by other employees to be covered. Then they can choose which ones they want to cover.</p>
+          <p><a class="btn btn-secondary" href="{%url 'shift:coverer'%}" role="button">View Posts &raquo;</a></p>
+        </div>
+  </p>
+</div>
+	<!-- end content -->
+	<!-- start sidebar -->
+	<div id="sidebar">
+		{% block sidebar %}{% endblock %}
+	</div>
+	<!-- end sidebar -->
+</div>
+<!-- end page -->
+</body>
+</html>

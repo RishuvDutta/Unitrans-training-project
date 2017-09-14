@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>{{ title }}</h1>
+
+<form method='POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Cover</button>
+    <a href="{% url 'shift:home' %}"> <button type="button">Back</button></a><br/>
+</form></div>
+</div>
+{% endblock %}

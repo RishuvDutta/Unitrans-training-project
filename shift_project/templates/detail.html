@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post">
+    <h1 class="title"></h1>
+    <div class="entry">
+{% block body %}
+{% endblock %}
+        <ul>
+                	Shift Start: {{ instance.start_datetime }}<br/> 
+                	Shift End: {{ instance.end_datetime }}<br/>
+                    <br/><strong>Run Details:</strong><br/>
+                	{% for g in instance.runs_related.all %}
+                		User id {{g.user_id}}<br/>
+                		Run Start: {{g.start_datetime}}<br/>
+                		Run End: {{g.end_datetime}}<br/><br/>
+                	{% endfor %}
+            
+        </ul>
+        <a href="{% url 'shift:list' %}" value='Cancel' class='btn btn-default'>Back</a>
+    </div>
+</div>
+{% endblock %}

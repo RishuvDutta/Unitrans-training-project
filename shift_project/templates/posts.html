@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post">
+    <h1 class="title">Posted shifts</h1>
+    <div class="entry">
+{% block body %}
+{% endblock %}
+        <p>
+           {% for post in object_list %}
+
+           {% for run in post.runs.all%}
+
+                <li>{{ run.start_datetime }} {{ run.end_datetime }}
+                <a href="{% url 'shift:covering' id=id opk=run.pk pk=post.pk oid=run.user_id %}"> <button type="button" class="btn btn-default"> Cover </button></a></li>
+            {%endfor%}
+                        {%endfor%}
+
+    </div>
+</div>
+{% endblock %}
